@@ -1,0 +1,8 @@
+[unstable]
+build-std = ["core", "alloc", "compiler_builtins"]
+
+[build]
+target = "x86_64-rustos.json"
+
+[runner]
+runner = "bootimage runner"
