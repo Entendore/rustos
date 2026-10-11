@@ -1,0 +1,26 @@
+[package]
+name = "rustos"
+version = "0.1.0"
+edition = "2021"
+authors = ["RustOS Contributors"]
+
+[dependencies]
+bootloader = { version = "0.9", features = ["map_physical_memory"] }
+volatile = "0.4"
+spin = "0.9"
+x86_64 = "0.14"
+pic8259 = "0.10"
+pc-keyboard = "0.7"
+linked_list_allocator = "0.9"
+crossbeam-queue = { version = "0.3", default-features = false, features = ["alloc"] }
+conquer-once = { version = "0.3", default-features = false }
+uart_16550 = "0.2"
+
+[profile.dev]
+panic = "abort"
+
+[profile.release]
+panic = "abort"
+lto = true
+codegen-units = 1
+opt-level = 3
